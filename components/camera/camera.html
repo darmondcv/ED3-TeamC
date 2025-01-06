@@ -1,13 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bootstrap Example</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mecanum Robot Control</title>
+    <link rel="stylesheet" href="camera.css">
 </head>
 <body>
+    <header>
+        <h1>Mecanum Robot Control Panel</h1>
+    </header>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <main>
+        <div class="container">
+            <!-- Left Column -->
+            <div class="left-column">
+                <!-- Camera Feed Section -->
+                <section id="camera-section">
+                    <h2>Live Camera Feed</h2>
+                    <div id="mock-camera-feed">
+                        <div id="mock-object"></div>
+                    </div>
+                </section>
+
+                <!-- Motor Control Section -->
+                <section id="control-section">
+                  <h2>Motor Control</h2>
+                  <div class="dpad">
+                      <div class="row">
+                          <button class="arrow diagonal" onclick="moveObject('left-up')">⬉</button>
+                          <button class="arrow up" onclick="moveObject('forward')">▲</button>
+                          <button class="arrow diagonal" onclick="moveObject('right-up')">⬈</button>
+                      </div>
+                      <div class="row">
+                          <button class="arrow left" onclick="moveObject('left')">◄</button>
+                          <button class="arrow stop" onclick="moveObject('stop')">⏹</button>
+                          <button class="arrow right" onclick="moveObject('right')">►</button>
+                      </div>
+                      <div class="row">
+                          <button class="arrow diagonal" onclick="moveObject('left-down')">⬋</button>
+                          <button class="arrow down" onclick="moveObject('backward')">▼</button>
+                          <button class="arrow diagonal" onclick="moveObject('right-down')">⬊</button>
+                      </div>
+                  </div>
+              </section>
+              
+              
+              
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-column">
+                <!-- Motor Position Section -->
+                <section id="motor-section">
+                    <h2>Motor Position</h2>
+                    <div class="motor-data">
+                        Motor Position: <span id="motor-position">0</span>&deg;
+                    </div>
+                </section>
+
+                <!-- Position Data Section -->
+                <section id="position-section">
+                    <h2>Position Data</h2>
+                    <div class="position-data">
+                        X: <span id="x-position">0</span>, Y: <span id="y-position">0</span>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mecanum Robot Project</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
