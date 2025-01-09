@@ -1,0 +1,207 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f8fb;
+    color: #333;
+    box-sizing: border-box;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #004d6b;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+.logo {
+    font-size: 1.5rem; /* Increased font size for 'Team C' */
+    font-weight: bold; /* Make 'Team C' text bold */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #a7dff5;
+}
+
+
+/* Project Section */
+.project-section {
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 5rem 2rem !important;
+    margin-top: 4rem !important;
+}
+
+.project-text {
+    max-width: 40% !important;
+    margin-right: 1rem !important;
+}
+
+.project-image-placeholder {
+    width: 1000px !important;
+    height: 500px !important;
+    margin-left: 0 !important;
+    background-color: #dcdcdc !important;
+    border: 2px dashed #ccc !important;
+}
+
+.project-text p{
+    line-height: 2;
+    margin-bottom: 14rem;
+}
+
+.project-text h2{
+    font-size: 2rem;
+}
+
+/* Team Section */
+.team-section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.team-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    justify-items: center;
+}
+
+.team-card {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 250px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+    transform: scale(1.05);
+}
+
+.team-image-placeholder {
+    width: 100px;
+    height: 100px;
+    background-color: #dcdcdc;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    overflow: hidden;
+}
+
+.team-member-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-name {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.team-description {
+    font-size: 0.875rem;
+    color: #555;
+    background-color: #f4f8fb;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+.team-description div {
+    margin-bottom: 0.5rem; /* Add spacing between lines */
+    font-size: 0.875rem; /* Adjust font size for better readability */
+    color: #555; /* Ensure good contrast */
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .project-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .project-image-placeholder {
+        width: 100%;
+        height: auto;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.control-section {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.control-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+video {
+    border: 2px solid #333;
+    border-radius: 8px;
+    max-width: 90%;
+    height: auto;
+    display: block;
+    margin: 0 auto 1rem; /* Center the video and add spacing below it */
+}
+
+button {
+    display: block;
+    margin: 0 auto; /* Center the button below the video */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #004d6b;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #006a90;
+}

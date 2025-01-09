@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Page</title>
+    <link rel="stylesheet" href="../aboutPage/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/nipplejs@0.9.0/dist/nipplejs.min.js"></script> <!-- Include nipple.js -->
+    <style>
+        /* Joystick Container */
+        .joystick-container {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+
+        /* Adjust iframe styling */
+        iframe {
+            width: 90%;
+            height: 500px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* Buttons Styling */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Add spacing between buttons */
+            margin: 20px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <div class="logo">Team C</div>
+        <ul class="nav-links">
+            <li><a href="../aboutPage/about.html">About</a></li>
+            <li><a href="control.html" class="active">Control</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="control-section">
+        <h2>Live Camera Feed</h2>
+
+        <!-- Embed ESP32-CAM web interface with an iframe -->
+        <iframe id="camera-feed" src="http://192.168.20.26/" title="ESP32-CAM Feed"></iframe>
+
+        <!-- Joystick Container -->
+        <div id="joystick-container" class="joystick-container"></div>
+
+        <!-- Buttons -->
+        <div class="button-container">
+            <button id="start-camera">Start Camera</button>
+            <button id="stop-camera">Stop Camera</button>
+        </div>
+    </section>
+</main>
+
+<script>
+    // Initialize the joystick using nipple.js
+    const joystickContainer = document.getElementById('joystick-container');
+    const joystick = nipplejs.create({
+        zone: joystickContainer,
+        mode: 'static',
+        position: { left: '50%', top: '50%' }, // Centered within the container
+        color: 'blue',
+        size: 150
+    });
+
+    // Add functionality for the "Start Camera" button
+    const startCameraButton = document.getElementById('start-camera');
+    startCameraButton.addEventListener('click', () => {
+        const iframe = document.getElementById('camera-feed');
+        iframe.src = "http://192.168.20.26/"; // Set the iframe source to start the camera
+        alert("Camera feed started.");
+    });
+
+    // Add functionality for the "Stop Camera" button
+    const stopCameraButton = document.getElementById('stop-camera');
+    stopCameraButton.addEventListener('click', () => {
+        const iframe = document.getElementById('camera-feed');
+        iframe.src = ""; // Clear the iframe source to stop the camera
+        alert("Camera feed stopped.");
+    });
+
+    // Log joystick events for testing
+    joystick.on('move', (event, data) => {
+        console.log('Joystick moving:', data);
+    });
+
+    joystick.on('end', () => {
+        console.log('Joystick released');
+    });
+</script>
+</body>
+</html>
